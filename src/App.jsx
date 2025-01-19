@@ -5,6 +5,13 @@ import Gamestats from './components/Gamestats'
 import VictoryModal from './components/VictoryModal'
 import Leaderboard from './components/Leaderboard'
 
+// For supabase:
+import { createClient } from '@supabase/supabase-js'
+export const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+)
+
 const cardImages = [
   { "src": "/img/icons8-baguette-94.png", matched: false },
   { "src": "/img/icons8-banana-94.png", matched: false },
@@ -65,13 +72,31 @@ function App() {
     }, 1000)
   }
 
-  // Save score function
+  // Save score function with localStorage
 
-  const saveScore = (name, score) => {
-    const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || []
-    scores.push({ name, score: finalScore })
-    localStorage.setItem('memoryGameScores', JSON.stringify(scores))
-    console.log(scores)
+  // const saveScore = (name, score) => {
+  //   const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || []
+  //   scores.push({ name, score: finalScore })
+  //   localStorage.setItem('memoryGameScores', JSON.stringify(scores))
+  //   console.log(scores)
+
+  //   // Reset the game
+  //   setGameStarted(false)
+  //   setGameWon(false)
+  // }
+
+  // Save score function with Supabase
+
+  const saveScore = async (name, score) => {
+    const { data, error } = await supabase
+    .from('scores')
+    .insert([{ name, score }])
+
+    if (error) {
+      console.error('Error saving score:', error.message)
+    } else {
+      console.log('Score saved successfully!')
+    }
 
     // Reset the game
     setGameStarted(false)

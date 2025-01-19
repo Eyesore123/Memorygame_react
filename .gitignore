@@ -1,3 +1,11 @@
+# .Env-files
+
+*.env
+
+# .Env-folder
+
+.env/
+
 # Logs
 logs
 *.log

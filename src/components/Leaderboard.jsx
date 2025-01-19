@@ -1,13 +1,43 @@
 import { useEffect, useState } from 'react'
-
 import React from 'react'
+
+// For Supabase:
+
+import { supabase } from '../App.jsx'
 
 export default function Leaderboard() {
 
-  const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || []
+  // For local storage:
+
+  // const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || []
+
+  // For supabase:
+
+  const [scores, setScores] = useState([])
+
+  const fetchScores = async () => {
+    const { data, error } = await supabase
+      .from('scores')
+      .select('*')
+
+      if (error) {
+        console.error('Error fetching scores:', error)
+        return []
+      } else {
+        return data
+      }
+    }
+
+    useEffect(() => {
+      const loadScores = async () => {
+        const fetchedScores = await fetchScores()
+        setScores(fetchedScores)
+      }
+
+      loadScores()
+    }, [])
 
   const sortedScores = scores.sort((a, b) => a.score - b.score)
-
   const topScores = sortedScores.slice(0, 5)
 
   return (
