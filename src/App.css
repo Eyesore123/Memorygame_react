@@ -1,0 +1,122 @@
+.App {
+  width: 600px;
+  margin: 40px auto;
+}
+
+.start-button {
+  background: none;
+  border: 2px solid #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.finalbutton {
+  background: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+.finalbutton {
+  max-width: 200px;
+}
+
+button:hover {
+  background: #c23866;
+  color: #fff;
+}
+
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 2%;
+}
+
+.p {
+  display: inline-block;
+}
+h2 {
+  color: black;
+  font-size: 28px;
+  padding: 0px 40px;
+}
+
+.text {
+  color: black;
+}
+
+.turns {
+  margin-top: 100px;
+}
+
+.topscores {
+  margin-top: 100px;
+}
+
+.no-scores {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 1.1em;
+}
+
+.leaderboard {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.victory-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  min-width: 300px;  /* Gives it a consistent width */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;  /* Adds nice spacing between elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 40%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+.fireworks-container {
+  position: fixed;
+  size: cover;
+  top: 0%;
+  left: 0%;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100vw !important;
+}
