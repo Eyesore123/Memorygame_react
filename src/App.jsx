@@ -38,6 +38,13 @@ function App() {
   const [gameWon, setGameWon] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [finalScore, setFinalScore] = useState(0)
+  const [domLoaded, setDomLoaded] = useState(false)
+
+  // Check if the DOM is loaded so the grid doesn't render before the images are loaded
+
+  useEffect(() => {
+    setDomLoaded(true)
+  }, [])
 
   // Shuffle the cards
   const shuffleCards = () => {
@@ -125,6 +132,7 @@ function App() {
     setDisabled(false)
     
   }
+  
  
   return (
     <div className="App">
@@ -143,7 +151,7 @@ function App() {
         </>
       )}
 
-      {gameStarted && !isLoading && !gameWon &&( 
+      {gameStarted && !isLoading && !gameWon && domLoaded &&( 
         <div className="card-grid">
         {cards.map(card => (
           <SingleCard card={card} 
