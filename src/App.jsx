@@ -26,6 +26,7 @@ const cardImages = [
   { "src": "/img/icons8-mcdonald`s-french-fries-94.png", matched: false },
 ]
 
+
 function App() {
 
   const [cards, setCards] = useState([])
@@ -35,17 +36,12 @@ function App() {
   const [disabled, setDisabled] = useState(false)
   const [gameStarted, setGameStarted] = useState(false)
   const [gameWon, setGameWon] = useState(false)
-
-  // Check for victory:
-
-  const checkVictory = () => {
-    if(cards.every(card => card.matched)) {
-      setGameWon(true)
-    }
-  }
+  const [isLoading, setIsLoading] = useState(true)
+  const [finalScore, setFinalScore] = useState(0)
 
   // Shuffle the cards
   const shuffleCards = () => {
+    setIsLoading(true)
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }))
@@ -56,13 +52,17 @@ function App() {
     setTurns(0)
     setGameStarted(true)
     setGameWon(false)
+
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
   }
 
   // Save score function
 
   const saveScore = (name, score) => {
     const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || []
-    scores.push({ name, score })
+    scores.push({ name, score: finalScore })
     localStorage.setItem('memoryGameScores', JSON.stringify(scores))
     console.log(scores)
 
@@ -101,8 +101,10 @@ function App() {
               }
               return card
             })
+            // Check for victory:
             if (newCards.every(card => card.matched)) {
               setGameWon(true)
+              setFinalScore(turns)
             }
             return newCards
           })
@@ -113,8 +115,6 @@ function App() {
         }
       }
     }, [choiceOne, choiceTwo])
-  
-
 
   // Reset choices & increase turn
 
@@ -130,11 +130,20 @@ function App() {
     <div className="App">
       <h1>Memory Game</h1>
 
-      {/* {!gameStarted && <button className="start-button" onClick={shuffleCards}>New Game</button>}
+      {!gameStarted && <button className="start-button" onClick={shuffleCards}>New Game</button>}
 
       {!gameStarted && <Leaderboard />}
 
-      {gameStarted && !gameWon &&( 
+      {isLoading && gameStarted && (
+        <>
+        <div className="loading-screen">
+          <h1 style={{paddingBottom: "100px", paddingTop: "100px", fontSize: "1em"}}>Loading Game...</h1>
+          <div className="loading-spinner"></div>
+        </div>
+        </>
+      )}
+
+      {gameStarted && !isLoading && !gameWon &&( 
         <div className="card-grid">
         {cards.map(card => (
           <SingleCard card={card} 
@@ -146,15 +155,15 @@ function App() {
            />
           ))}
       </div>
-      )} */}
+      )}
 
-      {!gameWon && <VictoryModal
-        turns={turns}
+      {gameWon && <VictoryModal
+        turns={finalScore}
         onSave={saveScore}
         onNewGame={shuffleCards}
       />}
 
-      {/* {gameStarted && !gameWon && <Gamestats turns={turns} />} */}
+      {gameStarted && !gameWon && <Gamestats turns={turns} />}
     </div>
   )
 }
