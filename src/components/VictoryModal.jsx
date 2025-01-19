@@ -34,7 +34,7 @@ export default function VictoryModal({ turns, onSave, onNewGame }) {
         gravity: 1.5,
         particles: 300,
         traceLength: 3,
-        traceSpeed: 10,
+        traceSpeed: 2,
         explosion: 5,
         intensity: 60, // Initial intensity
         flickering: 50,
