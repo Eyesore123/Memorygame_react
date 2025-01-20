@@ -4,6 +4,7 @@ import SingleCard from './components/SingleCard'
 import Gamestats from './components/Gamestats'
 import VictoryModal from './components/VictoryModal'
 import Leaderboard from './components/Leaderboard'
+import Footer from './components/Footer'
 
 // For supabase:
 import { createClient } from '@supabase/supabase-js'
@@ -197,6 +198,7 @@ function App() {
       />}
 
       {gameStarted && !gameWon && <Gamestats turns={turns} />}
+      {gameStarted && !gameWon && <Footer />}
     </div>
   )
 }
