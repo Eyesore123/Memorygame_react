@@ -20,7 +20,7 @@ export default function Leaderboard() {
       .from('scores')
       .select('name, score')
       .order('score', { ascending: true })
-      .limit(5)
+      .limit(8)
 
       if (error) {
         console.error('Error fetching scores:', error)
