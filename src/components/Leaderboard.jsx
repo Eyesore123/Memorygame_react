@@ -19,6 +19,8 @@ export default function Leaderboard() {
     const { data, error } = await supabase
       .from('scores')
       .select('name, score')
+      .order('score', { ascending: true })
+      .limit(5)
 
       if (error) {
         console.error('Error fetching scores:', error)
@@ -37,8 +39,7 @@ export default function Leaderboard() {
       loadScores()
     }, [])
 
-  const sortedScores = scores.sort((a, b) => a.score - b.score)
-  const topScores = sortedScores.slice(0, 5)
+  const topScores = scores
 
   return (
     <div className='leaderboard'>
