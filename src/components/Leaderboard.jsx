@@ -18,7 +18,7 @@ export default function Leaderboard() {
   const fetchScores = async () => {
     const { data, error } = await supabase
       .from('scores')
-      .select('*')
+      .select('name, score')
 
       if (error) {
         console.error('Error fetching scores:', error)
