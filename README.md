@@ -1,6 +1,6 @@
-# memorygame-react
+# Memory Game
 
-This is the memory game from The Net Ninja's React and Firebase Course.
+This is the memory game from The Net Ninja's React and Firebase Course
 Though I made some changes:
 
 * Added a leaderboard; added gamestats and leaderboard components
