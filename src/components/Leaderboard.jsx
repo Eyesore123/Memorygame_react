@@ -14,6 +14,7 @@ export default function Leaderboard() {
   // For supabase:
 
   const [scores, setScores] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchScores = async () => {
     const { data, error } = await supabase
@@ -32,8 +33,10 @@ export default function Leaderboard() {
 
     useEffect(() => {
       const loadScores = async () => {
+        setIsLoading(true)
         const fetchedScores = await fetchScores()
         setScores(fetchedScores)
+        setIsLoading(false)
       }
 
       loadScores()
@@ -45,18 +48,22 @@ export default function Leaderboard() {
     <div className='leaderboard'>
       <h1 className='topscores'>Top scores</h1>
         <div className="scores-list">
-          {topScores.length > 0 ? (
+        {isLoading ? (
+            <p>Loading scores...</p>
+          ) : (
+          topScores.length > 0 ? (
             <ul>
               {topScores.map((score, index) => (
                 <li key={index}>
                   {score.name}: {score.score} turns
                 </li>
               ))}
-            </ul>)
-             : (
+            </ul>
+           )  : (
 
            <p className='no-scores'>No scores yet. Be the first to play and get your name on the leaderboard! 🏆</p>
-            )}
+            )
+        )}
         </div>
     </div>
   )
