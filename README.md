@@ -8,4 +8,4 @@ Though I made some changes:
 * Doubled the amount of cards and changed them to food icons
 * Added a congratulation modal with fireworks effects
 * Resized the grid and added some text and a footer
-* Added a fake loader for the startup
+* Added a fake loader for the start of the game
