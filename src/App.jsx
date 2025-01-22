@@ -79,12 +79,8 @@ function App() {
   //   const scores = JSON.parse(localStorage.getItem('memoryGameScores')) || []
   //   scores.push({ name, score: finalScore })
   //   localStorage.setItem('memoryGameScores', JSON.stringify(scores))
-  //   console.log(scores)
 
-  //   // Reset the game
-  //   setGameStarted(false)
-  //   setGameWon(false)
-  // }
+
 
   // Save score function with Supabase
 
@@ -93,11 +89,7 @@ function App() {
     .from('scores')
     .insert([{ name, score }])
 
-    if (error) {
-      console.error('Error saving score:', error.message)
-    } else {
-      console.log('Score saved successfully!')
-    }
+
 
     // Reset the game
     setGameStarted(false)
@@ -113,11 +105,6 @@ function App() {
 
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     
-    console.log(card)
-
-    // console.log(choiceOne)
-    // console.log(choiceTwo)
-    // console.log(choiceOne, choiceTwo)
   }
 
      // If the source of the first choice is the same as the source of the second choice, they are a match. THhey both need to have a value.
