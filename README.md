@@ -12,4 +12,6 @@ Though I made some changes:
 
 Doesn't require a sign-up. So fire up the game and get your name on the leaderboard!
 
-        <a href="https://memory-game-topaz-pi.vercel.app/">PLAY</a>
+
+
+<a href="https://memory-game-topaz-pi.vercel.app/">PLAY</a>
