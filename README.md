@@ -11,3 +11,5 @@ Though I made some changes:
 * Added a fake loader for the start of the game
 
 Doesn't require a sign-up. So fire up the game and get your name on the leaderboard!
+
+<a href="https://memory-game-topaz-pi.vercel.app/">PLAY</a>
