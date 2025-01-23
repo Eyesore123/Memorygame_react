@@ -18,8 +18,6 @@ Doesn't require a sign-up. So fire up the game and get your name on the leaderbo
 
 
 
----------------------------------------------------------------
-
 ![memorygame](https://github.com/user-attachments/assets/878a941a-47a4-47b1-aa13-9856eba0e333)
 
 </div>
