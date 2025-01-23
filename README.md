@@ -1,5 +1,5 @@
-# Memory Game
 
+# Memory Game
 This is a memory game from The Net Ninja's React and Firebase Course.
 Though I made some changes:
 
@@ -15,3 +15,11 @@ Doesn't require a sign-up. So fire up the game and get your name on the leaderbo
 
 
 <a href="https://memory-game-topaz-pi.vercel.app/">PLAY</a>
+
+
+
+---------------------------------------------------------------
+
+![memorygame](https://github.com/user-attachments/assets/878a941a-47a4-47b1-aa13-9856eba0e333)
+
+</div>
