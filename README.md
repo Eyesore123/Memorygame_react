@@ -12,10 +12,12 @@ Though I made some changes:
 
 Doesn't require a sign-up. So fire up the game and get your name on the leaderboard!
 
-Edit: there have been problems with deployment recently (domain assignment doesn't work). If the game doesn't load, please try again later. Thanks!
+Edit: there have been problems with Vercel recently (domain assignment doesn't work). If the game doesn't load, please try another link: Thanks!
 
 
 <a href="https://memory-game-topaz-pi.vercel.app/">PLAY</a>
+
+<a href="https://stately-sopapillas-6909d9.netlify.app/">PLAY</a>
 
 
 
