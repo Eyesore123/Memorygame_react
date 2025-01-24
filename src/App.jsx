@@ -34,7 +34,6 @@ const cardImages = [
   { "src": "/img/icons8-mcdonald`s-french-fries-94.png", matched: false },
 ]
 
-
 function App() {
 
   const [cards, setCards] = useState([])
