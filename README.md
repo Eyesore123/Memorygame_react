@@ -16,6 +16,8 @@ Doesn't require a sign-up. So fire up the game and get your name on the leaderbo
 
 * Card back image toggle functionality
 
+## Links
+
 Edit: If the game doesn't load, please try another link. Thanks!
 
 
