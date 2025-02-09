@@ -1,7 +1,6 @@
 #footerdiv {
     display: flex;
     align-items: center;
-    gap: 20px !important;
     width: 100vw;
     justify-content: center;
 }
