@@ -5,6 +5,8 @@ import Gamestats from './components/Gamestats'
 import VictoryModal from './components/VictoryModal'
 import Leaderboard from './components/Leaderboard'
 import Footer from './components/Footer'
+import './components/Landingpagefooter.css'
+import GithubIcon from './assets/Github.png'
 
 // For supabase:
 import { createClient } from '@supabase/supabase-js'
@@ -52,6 +54,15 @@ function App() {
   useEffect(() => {
     setDomLoaded(true)
   }, [])
+
+  useEffect(() => {
+    const landingpagefooter = document.getElementById('landingpagefooter');
+    if (landingpagefooter) {
+      landingpagefooter.addEventListener('click', function() {
+        landingpagefooter.style.display = 'none';
+      });
+    }
+  }, []);
 
   // Shuffle the cards
   const shuffleCards = () => {
@@ -144,7 +155,6 @@ function App() {
     setDisabled(false)
     
   }
-  
  
   return (
     <div className="App">
@@ -153,6 +163,29 @@ function App() {
       {!gameStarted && <button className="start-button" onClick={shuffleCards}>New Game</button>}
 
       {!gameStarted && <Leaderboard />}
+
+      {/* Landing page footer, hidden by default, used like a component */}
+        {!gameStarted && 
+        
+        <footer className="landingpagefooter" id="landingpagefooter" style={{ display: 'block' }}>
+            <div className="footerdiv" id="footerdiv">
+                <p className="game1" style={{ color: 'black'}} id="game1">Check out my other games:
+                </p>
+                <p className="game2" id="game2">
+                    <a href="https://math-puzzle-game-ashy.vercel.app/" target="_blank">Math Puzzle Game</a>
+                </p>
+                <p className="game3" id="game3">
+                    <a href="https://snakegame-mocha-kappa.vercel.app/" target="_blank">Snake Game</a>
+                </p>
+                <p className="github" id="github">
+                    <a href="https://github.com/Eyesore123" target="_blank">
+                    <img src={GithubIcon} alt="Github Icon" className="githubicon" id="githubicon" />
+                    </a>
+                </p>
+            </div>
+        </footer>
+        }
+
 
       {isLoading && gameStarted && (
         <>
@@ -164,6 +197,7 @@ function App() {
       )}
 
       {gameStarted && !isLoading && !gameWon && domLoaded &&( 
+       <p style={{display: "flex", justifyContent: "center"}}> 
         <div className="card-grid">
         {cards.map(card => (
           <SingleCard card={card} 
@@ -175,6 +209,7 @@ function App() {
            />
           ))}
       </div>
+      </p>
       )}
 
       {gameWon && <VictoryModal
