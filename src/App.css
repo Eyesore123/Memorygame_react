@@ -67,20 +67,35 @@ h1 {
   margin-top: 15vh;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1920px) {
 
   div.App {
     margin-top: 10vh;
   }
   .card-grid {
-    margin-top: 20vh;
-    scale: 1.5;
-  }
-  p.turns {
-    margin-top: 20vh;
+    margin-top: 10vh;
+    scale: 1;
   }
   
 }
+
+@media screen and (min-width: 2560px) {
+  div.App {
+    margin-top: 10vh;
+  }
+  .card-grid {
+    margin-top: 10vh;
+    scale: 1.8;
+  }
+  p.turns {
+    margin-top: 30vh;
+  }
+
+  p {
+    font-size: 2em;
+  }
+}
+
 h2 {
   color: black;
   font-size: 28px;
