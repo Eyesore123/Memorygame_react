@@ -123,7 +123,6 @@ function App() {
       if (choiceOne && choiceTwo) {
         setDisabled(true)
         if (choiceOne.src === choiceTwo.src) {
-          console.log('match')
           setCards(prevCards => {
             const newCards = prevCards.map(card => {
               if (card.src === choiceOne.src) {
@@ -140,7 +139,6 @@ function App() {
           })
           resetTurn()
         } else {
-          console.log('not a match')
           setTimeout(() => resetTurn(), 1000)
         }
       }
@@ -158,7 +156,7 @@ function App() {
  
   return (
     <div className="App">
-      <h1>Memory Game</h1>
+      {!gameStarted && <h1>Memory Game</h1>}
 
       {!gameStarted && <button className="start-button" onClick={shuffleCards}>New Game</button>}
 
@@ -197,7 +195,7 @@ function App() {
       )}
 
       {gameStarted && !isLoading && !gameWon && domLoaded &&( 
-       <p style={{display: "flex", justifyContent: "center"}}> 
+       <div style={{display: "flex", justifyContent: "center"}}> 
         <div className="card-grid">
         {cards.map(card => (
           <SingleCard card={card} 
@@ -208,8 +206,8 @@ function App() {
 
            />
           ))}
+        </div>
       </div>
-      </p>
       )}
 
       {gameWon && <VictoryModal

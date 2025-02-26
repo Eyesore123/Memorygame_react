@@ -62,6 +62,25 @@ button:hover {
 .p {
   display: inline-block;
 }
+
+h1 {
+  margin-top: 15vh;
+}
+
+@media screen and (min-width: 1440px) {
+
+  div.App {
+    margin-top: 10vh;
+  }
+  .card-grid {
+    margin-top: 20vh;
+    scale: 1.5;
+  }
+  p.turns {
+    margin-top: 20vh;
+  }
+  
+}
 h2 {
   color: black;
   font-size: 28px;
