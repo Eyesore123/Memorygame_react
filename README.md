@@ -15,7 +15,7 @@ Doesn't require a sign-up. So fire up the game and get your name on the leaderbo
 
 ## Issues:
 
-* Card back images load slowly in the card back change menu and can disturb the card logic if changes are made during the game
+* Card back images might load slowly if connection is slow
 
 ## Links
 

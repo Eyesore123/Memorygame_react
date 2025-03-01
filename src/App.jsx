@@ -196,7 +196,7 @@ function App() {
     {/* Modal stuff */}
 
           {/* Button to open the modal */}
-          {gameStarted && (
+          {gameStarted && turns < 1 && (
             <button style={{ margin: '0' }} onClick={() => setModalOpen(true)} className="open-modal-button start-button">
               Change back image
             </button>
