@@ -1,0 +1,71 @@
+/* Modal styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    width: 100%;
+  }
+  .modal-content {
+    background-color: white;
+    width: 60vw;
+    min-height: 45vh;
+    max-height: 80vh;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .modal-ok-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 50px;
+  }
+  
+  .modal-ok-button:hover {
+    background-color: #0056b3;
+  }
+
+  .card-item img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+ .card-grid2 {
+    display: grid;
+    margin: 10px 10px;
+    padding-top: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: space-between;
+ }
+
+  .card-grid2 img {
+    width: 100px;
+  }

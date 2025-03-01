@@ -15,6 +15,21 @@ export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_ANON_KEY
 )
 
+// Card selection modal
+
+import CardSelectionModal from "./components/CardSelectionModal";
+
+const images = [
+ { "src": "/images/1.jpeg" },
+ { "src": "/images/2.jpeg" },
+ { "src": "/images/3.jpeg" },
+ { "src": "/images/4.jpeg" },
+ { "src": "/images/5.jpeg" },
+ { "src": "/images/6.jpeg" },
+ { "src": "/images/7.jpeg" },
+ { "src": "/images/8.jpeg" },
+];
+
 const cardImages = [
   { "src": "/img/icons8-baguette-94.png", matched: false },
   { "src": "/img/icons8-banana-94.png", matched: false },
@@ -48,6 +63,27 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [finalScore, setFinalScore] = useState(0)
   const [domLoaded, setDomLoaded] = useState(false)
+
+  // For card change modal:
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [backSrc, setBackSrc] = useState("/img/cover.png");
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleCardSelect = (selectedImage) => {
+    // console.log('Selected image:', selectedImage);
+    setBackSrc(selectedImage.src);
+    setSelectedCard({ ...selectedImage, id: selectedImage.id });
+  }
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+  
+  const handleModalConfirm = () => {
+    setModalOpen(false);
+    const newCards = cards.map((card) => ({ ...card, backSrc: backSrc }));
+    setCards(newCards);
+  };
 
   // Check if the DOM is loaded so the grid doesn't render before the images are loaded
 
@@ -156,6 +192,25 @@ function App() {
  
   return (
     <div className="App">
+
+    {/* Modal stuff */}
+
+          {/* Button to open the modal */}
+          {gameStarted && (
+            <button style={{ margin: '0' }} onClick={() => setModalOpen(true)} className="open-modal-button start-button">
+              Change back image
+            </button>
+          )}
+
+      {/* Modal for selecting a card */}
+      <CardSelectionModal 
+      show={isModalOpen} 
+      onClose={handleModalClose} 
+      onConfirm={handleModalConfirm}
+      images={images}
+      selectedCard={selectedCard}
+      onCardSelect={handleCardSelect} />
+
       {!gameStarted && <h1>Memory Game</h1>}
 
       {!gameStarted && <button className="start-button" onClick={shuffleCards}>New Game</button>}
@@ -196,6 +251,7 @@ function App() {
 
       {gameStarted && !isLoading && !gameWon && domLoaded &&( 
        <div style={{display: "flex", justifyContent: "center"}}> 
+       <CardSelectionModal />
         <div className="card-grid">
         {cards.map(card => (
           <SingleCard card={card} 
