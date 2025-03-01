@@ -9,16 +9,17 @@ Though I made some changes:
 * Added a congratulation modal with fireworks effects
 * Resized the grid and added some text and a footer
 * Added a fake loader for the start of the game
+* Added a card back image toggle functionality
 
 Doesn't require a sign-up. So fire up the game and get your name on the leaderboard!
 
-## Planned future improvements:
+## Issues:
 
-* Card back image toggle functionality
+* Card back images load slowly in the card back change menu and can disturb the card logic if changes are made during the game
 
 ## Links
 
-Edit: If the game doesn't load, please try another link. Thanks!
+Edit: If the first link doesn't work, please try another link. Thanks!
 
 
 <a href="https://memory-game-topaz-pi.vercel.app/">PLAY</a>
